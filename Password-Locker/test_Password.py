@@ -29,12 +29,21 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
-    def test_delete_user(self):
+    def delete_user(self):
+        self.new_user.save_user()
+        test_user = User("Test","user","0712345678","test@user.com") # new user
+        test_user.save_user()
+        self.new_user.delete_user()# Deleting a user object
+        self.assertEqual(len(User.user_list),2)
+        User.user_list.remove(self) 
+
+    def test_find_user_by_number(self):
         self.new_user.save_user()
         test_user = User("Test","user","0712345678","test@user.com")
         test_user.save_user()
 
-        self.new_user.delete_user
+        found_user = User.find_by_number("0712345678")
+        self.assertEqual(found_user.email,test_user.email)
         
 if __name__ == '__main__':
     unittest.main()
