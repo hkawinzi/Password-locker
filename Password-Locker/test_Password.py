@@ -13,8 +13,21 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.email,"hkawinzi@gmail.com")
 
     def test_save_user(self):
-        self.new_user.save_user()
+        self.assertEqual(self.new_user.first_name,"Happy")
+        self.assertEqual(self.new_user.last_name,"Kawinzi")
+        self.assertEqual(self.new_user.phone_number,"0712345678")
+        self.assertEqual(self.new_user.email,"hkawinzi@gmail.com")
+        self.new_user.save_user() 
         self.assertEqual(len(User.user_list),1)
+
+    def tearDown(self):
+        User.user_list = []
+    
+    def test_save_multiple_user(self):
+        self.new_user.save_user()
+        test_user = User("Test","user","0712345678","test@user.com") 
+        test_user.save_user()
+        self.assertEqual(len(User.user_list),2)
 
 if __name__ == '__main__':
     unittest.main()
