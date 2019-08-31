@@ -1,3 +1,3 @@
 import unittest
-import Password
+from User import User 
 
