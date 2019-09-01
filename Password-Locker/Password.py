@@ -19,7 +19,7 @@ class User:
     @classmethod
     def user_exists(cls,number):
         for user in cls.user_list:
-            if user.phone_number == number:
+            if user.first_name == first_name:
                     return True
 
         return False

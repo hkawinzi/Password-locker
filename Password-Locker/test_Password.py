@@ -47,10 +47,10 @@ class TestUser(unittest.TestCase):
 
     def test_user_exists(self):
         self.new_user.save_user()
-        test_user = User("Test","user","0722210140","test@user.com")
+        test_user = User("Test","user","0711223344","test@user.com")
         test_user.save_user()
 
-        user_exists = User.user_exists("0722210140")
+        user_exists = User.user_exists("Test")
 
         self.assertTrue(user_exists)
         
