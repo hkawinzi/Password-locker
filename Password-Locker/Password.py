@@ -15,3 +15,11 @@ class User:
         for user in cls.user_list:
             if user.phone_number == number:
                 return user
+
+    @classmethod
+    def user_exists(cls,number):
+        for user in cls.user_list:
+            if user.phone_number == number:
+                    return True
+
+        return False
