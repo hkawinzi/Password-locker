@@ -5,3 +5,6 @@ def create_user(fname,lname,number,username):
 
 def save_user(user):
     user.save_user()
+
+def del_user(user):
+    user.delete_user()
